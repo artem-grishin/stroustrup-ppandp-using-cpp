@@ -50,7 +50,7 @@ struct Money
     {
         return (int)getTotalCents() % 100;
     }
-    string toString()
+    string thttps://my.ine.com/course/ine-ccna-rs-cisco-ios-infrastructure-services/5fbc616f-757d-46bf-bdc6-8517d267307eoString()
     {
         if (penn == 1) qInfo() << "You have one" << penn << " penny.";
         else qInfo() << "You have " << penn << " pennies.";
@@ -90,6 +90,7 @@ int main(int argc, char *argv[])
     cout << "\n";
     qInfo() << "The value of all your coins is" << m.getTotalCents() << "cents.";
     cout << "You have $" << m.getWholeDollars() << "." << m.getLooseChange() << endl;
+
     qFatal("\n\nGoodbye\n\n");
     return a.exec();
 }
