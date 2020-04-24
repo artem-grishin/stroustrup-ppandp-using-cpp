@@ -10,9 +10,11 @@ int main(int argc, char *argv[])
 
     vector<int> v_i;
     vector<int> primes {2};
-    int counter {0};
+    int max {0};
+    qInfo() << "Enter a max: ";
+    cin >> max;
     //populate vector
-    for (int i = 0; i < 1000; i++)
+    for (int i = 0; i < max; i++)
     {
        v_i.push_back (i + 1);
     }
@@ -28,32 +30,13 @@ int main(int argc, char *argv[])
         }
         if (isPrime)
         {
-            if (counter == 101)
-            {
-                break;
-            }
             primes.push_back (v_i[i]);
-            ++counter;
         }
     }
     for (auto i : primes)
     {
         cout << i << "\n";
     }
-    cout << primes.size() << "\n";
-
-//    for (auto i : v_i)
-//    {
-//        for (vector<int>::size_type j = 2; j < i; j++)
-//        {
-
-//        }
-//    }
-//    qInfo() << "Here are all the prime numbers between 1 - 100: \n\n";
-//    for (auto i : primes)
-//    {
-//        cout << i << "\n";
-//    }
     qFatal("\nGoodbye\n");
     return a.exec();
 }
