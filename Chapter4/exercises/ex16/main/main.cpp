@@ -3,34 +3,56 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, char *argv[])
+int main (int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-//    vector<int> vi {2, 4, 1, 3, 5, 4, 2, 3, 4, 6, 7, 69, 1};
-
-//    int min {vi[0]}, max {vi[0]}, temp {0};
-//    for (auto i : vi)
+    vector<int> vi {2, 4, 1, 3, 5, 4, 2, 3, 4, 6, 7, 69, 1, 1, 2, 2, 2, 2, 9, 9, 9, 9, 9, 9, 9, 9, 9};
+    vector<int> vm (100);
+    int min {vi[0]}, max {vi[0]}, mode {0};
+    for (auto i : vi)
+    {
+        //find min
+        if (i < min)
+        {
+            min = i;
+        }
+        //find max
+        if (i > max)
+        {
+           max = i;
+        }
+//        temp = i;
+        ++vm[i];
+    }
+//    for (auto i : vm)
 //    {
-//         if (min > i)
-//         {
-//             max = min;
-//             min = i;
-//         }
-//         else
-//         {
-
-//         }
+//        qInfo() << "Test Info --------------------------------------------------";
+//        qInfo() << i;
 //    }
-
-
-    bool b = 0; cout << b << endl;
-    int i = b; cout << i << endl;
-    i = 3.14; cout << i << endl;
-    double pi = i; cout << pi << endl;
-    unsigned char c = -1; cout << c << endl;
-    signed char c2 = 256; cout << c2 << endl;
-    signed char c3 = 0; cout << c3 << endl;
-
+    int counter_max {vm[0]};
+    int index_counter {0};
+    int index {0};
+    for (auto i : vm)
+    {
+        if (i != 0 && i > counter_max)
+        {
+            counter_max = i;
+//            index_counter = index;
+            mode = index;
+        }
+        ++index;
+    }
+//    mode = vm[index_counter];
+    //print output
+    qInfo() << "Original List of Numbers: ";
+    for (auto i : vi)
+    {
+        cout << i;
+    }
+    cout << endl;
+    qInfo() << "Min is: " << min;
+    qInfo() << "Max is: " << max;
+    qInfo() << "Mode is:" << mode << "at" << counter_max << "times";
 
 
 
