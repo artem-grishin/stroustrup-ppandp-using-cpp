@@ -23,25 +23,36 @@ int main(int argc, char *argv[])
     qInfo() << "Enter a series of integers: (enter 0 when finished entering) ";
     int sum {0};
     int num;
+    bool is_continue = true;
     cin >> num;
-    while (num)
+    while (is_continue)
     {
-        if (num == 0) break;
-        nums.push_back(num);
-        cin >> num;
+        if (cin.fail())
+        {
+            error("Incorrect input => not an int\n\nGoodbye\n\n");
+        }
+        else if (num == 0)
+        {
+            //finishes input process
+                is_continue = false;
+        }
+        else
+        {
+            //populate vector
+            nums.push_back(num);
+            cin >> num;
+        }
     }
+
     cout << "\n" << endl;
     qInfo() << "Please enter the number of values you want to sum.";
     qInfo() << "You can enter between 1 and " << nums.size() << "integers to sum up";
-    cout << "\n" << endl;
     int v_size = nums.size();
     int n {0};
-    cout << "\n" << endl;
     cin >> n;
-    cout << "\n" << endl;
     if (n < 1 || n > v_size)
     {
-        error("Incorrect range for number of values to sum");
+        error("Incorrect range for number of values to sum\n\nGoodbye\n\n");
     }
     for (int i = 0; i < n; ++i)
     {
